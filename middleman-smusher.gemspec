@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Middleman::Smusher::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Thomas Reynolds"]
-  s.email       = ["tdreyno@gmail.com"]
+  s.email       = ["me@tdreyno.com"]
   s.homepage    = "https://github.com/tdreyno/middleman-smusher"
   s.summary     = %q{Compress images in your Middleman project}
   s.description = %q{Compress images in your Middleman project}
