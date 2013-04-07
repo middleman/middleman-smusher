@@ -2,4 +2,13 @@
 .bundle
 Gemfile.lock
 pkg/*
+
+# ruby version control
+
 .rvmrc
+.ruby-version
+.ruby-gemset
+
+# tool config files
+
+.idea
