@@ -1,8 +1,8 @@
-require "middleman-core"
+require 'middleman-core'
 
-require "middleman-smusher/version"
+require 'middleman-smusher/version'
   
 ::Middleman::Extensions.register(:smusher) do
-  require "middleman-smusher/extension"
+  require 'middleman-smusher/extension'
   ::Middleman::Smusher
 end

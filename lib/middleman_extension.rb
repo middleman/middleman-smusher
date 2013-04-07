@@ -1,1 +1,1 @@
-require "middleman-smusher"
+require 'middleman-smusher'
