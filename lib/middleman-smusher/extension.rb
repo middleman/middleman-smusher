@@ -1,40 +1,25 @@
+require 'smusher'
+
 module Middleman
-  module Smusher
-    class << self
-      def registered(app, options={})
-        require "smusher"
+  class Smusher < ::Middleman::Extension
+    option :service, 'SmushIt', 'Smushing service (SmushIt, PunyPng)'
+    option :path, null, 'Path to images to smush, defaults to :images_dir if not set'
+    option :with_gifs, false, 'Also smush GIFs'
 
-        # options[:service] ||= "SmushIt"
-        options[:quiet] = true
+    def initialize(app, options_hash={}, &block)
+      super
+    end
 
-        smush_dir, prefix = nil, nil
-        app.after_configuration do
-          smush_dir = if options.has_key?(:path)
-            options.delete(:path)
-          else
-            File.join(build_dir, images_dir)
-          end
+    def after_build(builder)
+      smush_dir = options.path || File.join(app.config[:build_dir], app.config[:images_dir])
+      prefix = build_dir + File::SEPARATOR
 
-          prefix = build_dir + File::SEPARATOR
-        end
+      files = ::Smusher.send :images_in_folder, smush_dir, options.with_gifs
 
-        app.after_build do |builder|
-          files = ::Smusher.class_eval do
-            images_in_folder(smush_dir)
-          end
-
-          files.each do |file|
-            ::Smusher.optimize_image(
-              [file],
-              options
-            )
-
-            builder.say_status :smushed, file.sub(prefix, "")
-          end
-        end
-
+      files.each do |file|
+        ::Smusher.optimize_image(file, service: options.service, quiet: true, with_gifs: options.with_gifs)
+        builder.say_status :smushed, file.sub(prefix, "")
       end
-      alias :included :registered
     end
   end
 end
