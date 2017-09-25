@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   # s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency("middleman-core", [">= 3.2.0"])
+  s.add_runtime_dependency("middleman-core", [">= 4.2.1"])
   s.add_runtime_dependency("smusher", ["~> 0.4.9"])
 end
