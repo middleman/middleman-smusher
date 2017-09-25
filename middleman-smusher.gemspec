@@ -1,10 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "middleman-smusher/version"
 
 Gem::Specification.new do |s|
   s.name        = "middleman-smusher"
-  s.version     = Middleman::Smusher::VERSION
+  s.version     = '4.0.0'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Thomas Reynolds"]
   s.email       = ["me@tdreyno.com"]
