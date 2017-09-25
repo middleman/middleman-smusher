@@ -1,4 +1,3 @@
-require 'smusher'
 
 module Middleman
   class Smusher < ::Middleman::Extension
@@ -8,6 +7,7 @@ module Middleman
 
     def initialize(app, options_hash={}, &block)
       super
+      require 'smusher'
     end
 
     def after_build(builder)
