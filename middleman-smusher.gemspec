@@ -1,10 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "middleman-smusher/version"
 
 Gem::Specification.new do |s|
   s.name        = "middleman-smusher"
-  s.version     = Middleman::Smusher::VERSION
+  s.version     = '4.0.0'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Thomas Reynolds"]
   s.email       = ["me@tdreyno.com"]
@@ -19,6 +18,6 @@ Gem::Specification.new do |s|
   # s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency("middleman-core", [">= 3.2.0"])
+  s.add_runtime_dependency("middleman-core", [">= 4.2.1"])
   s.add_runtime_dependency("smusher", ["~> 0.4.9"])
 end
